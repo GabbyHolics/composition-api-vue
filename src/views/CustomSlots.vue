@@ -3,6 +3,7 @@
     <button @click="openModal" > Abrir modal </button> 
 
     <modal v-if="isOpen"
+            title="Hola Mundo"
             @on:close="closeModal"> 
         <template v-slot:body>
             <p>Lorem ipsum dolor sit amet, consectet</p>
@@ -12,6 +13,10 @@
         </template>
         <template v-slot:header>
             <h1> Titulo del Modal  </h1>
+        </template>
+
+        <template v-slot:exposed="{ newTitle }">
+            <h2>{{ newTitle }}</h2>
         </template>
     </modal>
 </template>

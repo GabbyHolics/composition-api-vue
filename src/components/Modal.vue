@@ -10,15 +10,21 @@
             <hr>
             <slot name ="footer"/>
 
+            <slot name="exposed" :newTitle="newTitle"></slot>
+
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    props:['title'],
     emits: ['on:close'],
-    setup( props, context ){
+    setup( props ){
 
+          return {
+            newTitle: props.title?.toUpperCase()
+          }
     }
 }
 </script>
